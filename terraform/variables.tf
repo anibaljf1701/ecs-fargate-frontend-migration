@@ -36,11 +36,6 @@ variable "public_subnet_ids" {
   type        = list(string)
 }
 
-variable "target_group_arn" {
-  description = "ARN del target group HTTP existente del frontend (target type IP)"
-  type        = string
-}
-
 variable "desired_count" {
   description = "Cantidad inicial de tareas del servicio ECS"
   type        = number

@@ -39,7 +39,7 @@ resource "aws_ecs_service" "frontend_service" {
   }
 
   load_balancer {
-    target_group_arn = var.target_group_arn
+    target_group_arn = aws_lb_target_group.frontend_tg.arn
     container_name   = local.container_name
     container_port   = 80
   }
