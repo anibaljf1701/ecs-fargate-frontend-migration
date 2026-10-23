@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyPe | Exclusividad y Origen</title>
+
+    <!-- Fuentes: Montserrat (Estructura/Arquitectura) y Cormorant Garamond (Elegancia/Arte) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Ayme: Estructura, oscuridad, tranquilidad
+                        ayme: {
+                            900: '#0a0a0a', // Negro profundo
+                            800: '#141414', // Gris muy oscuro
+                            700: '#262626', // Gris oscuro
+                        },
+                        // Irupe: Arte, danza, rosa
+                        irupe: {
+                            400: '#f9a8d4', // Rosa suave
+                            500: '#f472b6', // Rosa vibrante
+                            600: '#db2777', // Rosa intenso
+                        },
+                        // Acentos neutros
+                        puelo: '#e5e5e5' // Blanco/gris para textos
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], // Ayme (Estructura)
+                        serif: ['Cormorant Garamond', 'serif'], // Irupe (Elegancia/Arte)
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        /* Detalles artísticos (Irupé) sobre estructuras rígidas (Ayme) */
+        .artistic-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(244,114,182,0.15) 0%, rgba(10,10,10,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(244, 114, 182, 0.1);
+        }
+        .menu-card {
+            border: 1px solid #262626;
+            transition: all 0.3s ease;
+        }
+        .menu-card:hover {
+            border-color: #f472b6;
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.05);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-irupe-500 selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center z-20">
+                    <a href="#" class="font-sans text-2xl font-light tracking-[0.2em] text-white uppercase">
+                        AyPe<span class="text-irupe-500">.</span>
+                    </a>
+                </div>
+
+                <!-- Enlaces de Escritorio -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#historia" class="text-gray-400 hover:text-irupe-400 transition font-light text-xs tracking-[0.15em] uppercase">Historia</a>
+                    <a href="#menu" class="text-gray-400 hover:text-irupe-400 transition font-light text-xs tracking-[0.15em] uppercase">La Reserva</a>
+                    <a href="#cata" class="text-gray-400 hover:text-irupe-400 transition font-light text-xs tracking-[0.15em] uppercase">Catas</a>
+                    <a href="#menu" class="px-6 py-2 border border-irupe-500 text-irupe-400 hover:bg-irupe-500 hover:text-white transition-all duration-300 text-xs tracking-[0.15em] uppercase">Reservar Taza</a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center z-20">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-irupe-500 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="fixed inset-0 bg-ayme-900 z-10 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300">
+            <div class="flex flex-col space-y-8 text-center">
+                <a href="#historia" class="mobile-link text-2xl font-serif italic text-white hover:text-irupe-400">Nuestra Historia</a>
+                <a href="#menu" class="mobile-link text-2xl font-serif italic text-white hover:text-irupe-400">La Reserva</a>
+                <a href="#cata" class="mobile-link text-2xl font-serif italic text-white hover:text-irupe-400">Catas Semanales</a>
+                <a href="#menu" class="mobile-link mt-8 px-8 py-3 border border-irupe-500 text-irupe-400 uppercase tracking-widest text-sm">Reservar Taza</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Fondo base oscuro (Ayme) y manchas rosadas (Irupé) -->
+        <div class="absolute inset-0 bg-ayme-900"></div>
+        <div class="artistic-blob w-[600px] h-[600px] -top-40 -right-40"></div>
+        <div class="artistic-blob w-[400px] h-[400px] bottom-0 -left-20 opacity-50"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-3xl mx-auto mt-10">
+            <span class="block text-irupe-500 text-xs font-medium tracking-[0.3em] uppercase mb-6">Exclusividad & Origen</span>
+
+            <h1 class="text-5xl md:text-7xl font-sans font-light text-white mb-6 tracking-tight">
+                El ritual perfecto.<br/>
+                <span class="font-serif italic text-4xl md:text-6xl text-gray-300">Sólo 50 tazas al día.</span>
+            </h1>
+
+            <p class="text-sm md:text-base text-gray-400 mb-12 font-light tracking-wide leading-relaxed max-w-xl mx-auto">
+                De las raíces de Okinawa a la magia de Lago Puelo. Un espacio minimalista donde la estructura y el arte se encuentran en cada extracción.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#menu" class="px-8 py-4 bg-irupe-600 hover:bg-irupe-500 text-white transition-all duration-300 font-medium tracking-[0.15em] text-xs uppercase shadow-[0_0_20px_rgba(219,39,119,0.3)] hover:shadow-[0_0_30px_rgba(219,39,119,0.5)]">
+                    Solicitar Reserva
+                </a>
+            </div>
+        </div>
+
+        <!-- Línea arquitectónica vertical indicando scroll -->
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-px h-24 bg-gradient-to-b from-irupe-500 to-transparent"></div>
+    </header>
+
+    <section id="historia" class="py-32 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Columna de Texto -->
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-px bg-irupe-500"></div>
+                        <span class="text-irupe-400 uppercase tracking-[0.2em] text-xs">La Inspiración</span>
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-serif text-white mb-8 italic">Una historia de dualidad.</h2>
+
+                    <div class="space-y-6 text-gray-400 font-light text-sm leading-loose">
+                        <p>
+                            <strong class="text-white font-medium">AyPe</strong> nace de la unión de dos mundos, inspirados en mis hijas. El comienzo de Ayme y el final de Irupé.
+                        </p>
+                        <p>
+                            El espacio rinde homenaje a sus personalidades. Por un lado, la mente estructurada, tranquila y arquitectónica de <span class="text-white">Ayme</span>, reflejada en la oscuridad elegante y las líneas rectas de nuestro local minimalista.
+                        </p>
+                        <p>
+                            Por el otro, el alma artística, expresiva y alegre de <span class="text-irupe-400">Irupé</span>, presente en los toques de color rosa y en el movimiento de cada taza servida.
+                        </p>
+                        <p>
+                            Traemos un café con raíces profundas en <span class="text-white">Okinawa</span>, para disfrutarlo abrazados por el entorno patagónico de <span class="text-white">Lago Puelo</span>, el lugar que ellas llaman hogar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Composición Visual Minimalista -->
+                <div class="relative h-[500px] flex items-center justify-center">
+                    <!-- Cuadrado estructurado (Ayme) -->
+                    <div class="absolute w-64 h-64 border-2 border-ayme-700 right-10 top-10"></div>
+                    <!-- Forma orgánica/imagen (Irupé/Lago Puelo) -->
+                    <div class="absolute w-72 h-80 bg-ayme-800 z-10 left-0 bottom-10 overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Café minimalista" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <!-- Detalle Rosa -->
+                    <div class="absolute w-2 h-24 bg-irupe-500 z-20 left-64 top-32"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-32 bg-ayme-800 border-t border-b border-ayme-700 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="text-center mb-20">
+                <span class="text-irupe-400 font-sans tracking-[0.3em] uppercase text-xs mb-4 block">La Carta</span>
+                <h2 class="text-4xl font-serif italic text-white">El Ritual Exclusivo</h2>
+                <p class="mt-4 text-gray-400 text-sm font-light tracking-wide">Máximo 50 tazas diarias. Exclusividad y precisión.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- Café de Especialidad (Con Reserva) -->
+                <div class="menu-card bg-ayme-900 p-10 relative">
+                    <div class="absolute top-0 right-0 bg-irupe-600 text-white text-[10px] uppercase tracking-widest py-1 px-3 m-4">
+                        Solo con Reserva
+                    </div>
+                    <h3 class="text-xl font-sans font-light tracking-widest text-white mb-2 uppercase">Colección Raíces</h3>
+                    <p class="text-xs text-irupe-400 mb-8 font-light">Máximo 2 tazas por persona.</p>
+
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-end border-b border-ayme-700 pb-2">
+                            <div>
+                                <h4 class="font-serif text-2xl text-white">Ayme</h4>
+                                <p class="text-xs text-gray-500 mt-1 font-light tracking-wide">Estructurado, notas oscuras y cuerpo presente.</p>
+                            </div>
+                            <span class="font-sans text-lg text-irupe-400">$5</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-ayme-700 pb-2">
+                            <div>
+                                <h4 class="font-serif text-2xl text-white">Irupé</h4>
+                                <p class="text-xs text-gray-500 mt-1 font-light tracking-wide">Arte en taza, notas florales y acidez brillante.</p>
+                            </div>
+                            <span class="font-sans text-lg text-irupe-400">$5</span>
+                        </div>
+                        <div class="flex justify-between items-end border-b border-ayme-700 pb-2">
+                            <div>
+                                <h4 class="font-serif text-2xl text-white">Kimey</h4>
+                                <p class="text-xs text-gray-500 mt-1 font-light tracking-wide">Nuestra joya de Okinawa, proceso experimental.</p>
+                            </div>
+                            <span class="font-sans text-lg text-irupe-400">$7</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-10 py-4 border border-irupe-500 text-irupe-400 hover:bg-irupe-500 hover:text-white transition-all text-xs tracking-[0.2em] uppercase">
+                        Solicitar Reserva
+                    </button>
+                </div>
+
+                <!-- Menú Sin Reserva y Acompañamientos -->
+                <div class="space-y-12">
+
+                    <!-- Café Libre -->
+                    <div class="menu-card bg-ayme-900 p-10">
+                        <h3 class="text-xl font-sans font-light tracking-widest text-white mb-2 uppercase">Prensa Francesa</h3>
+                        <p class="text-xs text-gray-500 mb-8 font-light">Sin reserva. Sin límite. Disfrute libre.</p>
+
+                        <div class="flex justify-between items-end border-b border-ayme-700 pb-2">
+                            <div>
+                                <h4 class="font-serif text-2xl text-white">Maiten</h4>
+                                <p class="text-xs text-gray-500 mt-1 font-light tracking-wide">Inmersión clásica, cuerpo sedoso y reconfortante.</p>
+                            </div>
+                            <span class="font-sans text-lg text-white">$3</span>
+                        </div>
+                    </div>
+
+                    <!-- Pastelería Patagónica -->
+                    <div class="menu-card bg-ayme-900 p-10 border-l-2 border-l-irupe-500">
+                        <h3 class="text-xl font-sans font-light tracking-widest text-white mb-8 uppercase">Sabores de la Comarca</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-serif text-xl text-white">Tarta de Murra</h4>
+                                <div class="flex-grow border-b border-dotted border-ayme-700 mx-4"></div>
+                            </div>
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-serif text-xl text-white">Tarta de Rosa Mosqueta</h4>
+                                <div class="flex-grow border-b border-dotted border-ayme-700 mx-4"></div>
+                            </div>
+                            <div class="flex justify-between items-baseline">
+                                <h4 class="font-serif text-xl text-white">Lemon Pie</h4>
+                                <div class="flex-grow border-b border-dotted border-ayme-700 mx-4"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-6 font-light italic">* Frutos recolectados en Lago Puelo.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cata" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Cata de café" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-ayme-900 via-ayme-900 to-transparent"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="w-full md:w-2/3">
+                <span class="text-irupe-500 font-sans tracking-[0.3em] uppercase text-xs block mb-4">Evento Semanal</span>
+                <h2 class="text-4xl md:text-5xl font-serif italic text-white mb-6">El Ritual de Cata</h2>
+
+                <div class="w-16 h-px bg-irupe-500 mb-8"></div>
+
+                <p class="text-gray-400 font-light text-sm leading-relaxed mb-6">
+                    Todas las semanas abrimos nuestras puertas para una experiencia íntima. Un viaje sensorial donde exploramos los orígenes de nuestros granos en Okinawa, y cómo se entrelazan con la magia de Lago Puelo.
+                </p>
+                <p class="text-white font-medium text-sm mb-10">
+                    Capacidad estricta: <span class="text-irupe-400">10 personas.</span>
+                </p>
+
+                <a href="#contacto" class="inline-block px-8 py-3 bg-white text-ayme-900 hover:bg-irupe-500 hover:text-white transition-colors duration-300 text-xs font-semibold tracking-[0.2em] uppercase">
+                    Reservar Lugar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-ayme-900 pt-20 pb-10 border-t border-ayme-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 border-b border-ayme-800 pb-16">
+
+                <div>
+                    <a href="#" class="font-sans text-3xl font-light tracking-[0.2em] text-white uppercase block mb-4">
+                        AyPe<span class="text-irupe-500">.</span>
+                    </a>
+                    <p class="text-gray-500 text-sm font-light">Minimalismo, exclusividad y raíces.</p>
+                </div>
+
+                <div class="flex flex-col md:items-end space-y-4">
+                    <p class="text-white font-serif text-xl">Lago Puelo, Chubut, Patagonia.</p>
+                    <p class="text-gray-500 text-sm font-light">Atención exclusiva. Cupos limitados.</p>
+                    <a href="mailto:reservas@aypecafe.com" class="text-irupe-400 hover:text-irupe-300 text-sm tracking-widest uppercase transition-colors">reservas@aypecafe.com</a>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-ayme-700 uppercase tracking-widest">
+                <p>&copy; 2026 AyPe. Todos los derechos reservados.</p>
+                <p class="mt-4 md:mt-0">Okinawa — Lago Puelo</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let menuOpen = false;
+
+            // Nav Scroll Effect (Estilo oscuro/vidrio)
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-glass', 'py-4');
+                    navbar.classList.remove('bg-transparent', 'py-6');
+                } else {
+                    navbar.classList.remove('nav-glass', 'py-4');
+                    navbar.classList.add('bg-transparent', 'py-6');
+                }
+            });
+
+            // Mobile Menu Toggle con animación elegante
+            function toggleMenu() {
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    // Cambiar icono a 'X'
+                    menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                    menuIcon.parentElement.classList.add('text-irupe-500');
+                } else {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    // Cambiar icono a 'Hamburguesa'
+                    menuIcon.setAttribute('d', 'M4 8h16M4 16h16');
+                    menuIcon.parentElement.classList.remove('text-irupe-500');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>

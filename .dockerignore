@@ -1,0 +1,11 @@
+.git
+.terraform
+terraform
+coverage
+node_modules
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.plan
+Jenkinsfile
+README.md
