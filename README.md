@@ -33,7 +33,7 @@ flowchart LR
 
 ## Implementación
 
-El sitio estático está en `site/index.html` y el `Dockerfile` lo sirve directamente con Nginx. Jenkins valida cada rama y, solo para `main`, publica una imagen etiquetada con el commit y actualiza el servicio `dev` mediante Terraform.
+El directorio `site/` contiene una página neutral de demostración y el `Dockerfile` la sirve con Nginx. Sustitúyela por el build de tu frontend dockerizado para utilizar el template con una aplicación real. Jenkins valida cada rama y, solo para `main`, publica una imagen etiquetada con el commit y actualiza el servicio `dev` mediante Terraform.
 
 Configurar el job como **Multibranch Pipeline** apuntando a este repositorio y permitir que Jenkins descubra el `Jenkinsfile`. El pipeline expone estos parámetros; los valores de subredes deben estar en formato JSON:
 
@@ -42,7 +42,7 @@ AWS_REGION=us-east-1
 AWS_ACCOUNT_ID=<cuenta AWS>
 ECR_REPOSITORY=<repositorio existente>
 TF_STATE_BUCKET=<bucket existente>
-TF_STATE_KEY=aype-frontend/dev/terraform.tfstate
+TF_STATE_KEY=ecs-frontend/dev/terraform.tfstate
 VPC_ID=vpc-...
 PUBLIC_SUBNET_IDS=["subnet-...","subnet-..."]
 PRIVATE_SUBNET_IDS=["subnet-...","subnet-..."]
